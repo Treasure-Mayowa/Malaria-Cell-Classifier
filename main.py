@@ -1,5 +1,4 @@
 import cv2
-import pd
 import tensorflow as tf
 from tensorflow.keras.models import Sequential 
 from tensorflow.keras.layers import Dense, Conv2D, MaxPool2D, Flatten, Activation
