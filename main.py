@@ -65,7 +65,7 @@ model.add(Activation("relu"))
 model.add(Dense(1))
 model.add(Activation("sigmoid"))
 
-model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
+model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy", "precision"])
 
 # train the model with 3 epochs, 64 batch size
 model.fit(x_train, np.array(y_train), batch_size=64, epochs=3, validation_split=0.2)
@@ -73,5 +73,5 @@ model.fit(x_train, np.array(y_train), batch_size=64, epochs=3, validation_split=
 # so you can only load the previously trained model
 # model.load_weights("malaria-cell-cnn.h5")
 
-loss, accuracy = model.evaluate(x_test, np.array(y_test), verbose=0)
-print(f"Testing on {len(x_test)} images, the results are\n Accuracy: {accuracy} | Loss: {loss}")
+loss, accuracy, precision = model.evaluate(x_test, np.array(y_test), verbose=0)
+print(f"Testing on {len(x_test)} images, the results are\n Accuracy: {accuracy} | Loss: {loss} | Precision: {precision}")
